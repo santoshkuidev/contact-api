@@ -1,0 +1,9 @@
+{
+  "name": "contact-api",
+  "version": "1.0.0",
+  "main": "api/contact.ts",
+  "type": "module",
+  "dependencies": {
+    "@vercel/node": "^3.0.0"
+  }
+}
