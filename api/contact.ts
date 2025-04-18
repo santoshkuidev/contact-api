@@ -1,20 +1,8 @@
 import { VercelRequest, VercelResponse } from '@vercel/node';
 
-const ALLOWED_ORIGIN = 'https://santoshkuidev.github.io';
-
 export default async function handler(req: VercelRequest, res: VercelResponse) {
-  const origin = req.headers.origin;
-
-  if (origin === ALLOWED_ORIGIN) {
-    res.setHeader('Access-Control-Allow-Origin', ALLOWED_ORIGIN);
-  } else {
-    // For preflight, respond with 403 if not allowed
-    if (req.method === 'OPTIONS') {
-      return res.status(403).end();
-    }
-    return res.status(403).json({ error: 'CORS: This domain is not allowed.' });
-  }
-
+  // Allow all origins
+  res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
 
